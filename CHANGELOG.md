@@ -1,9 +1,5 @@
-# Change Log
-
-All notable changes to the "create-folder-from-template" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+# 更新日志
 
 ## [Unreleased]
 
-- Initial release
+- 初建
