@@ -1,9 +1,9 @@
-import * as vscode from 'vscode'
-import main from './main'
+import * as VSCode from 'vscode'
+import Main from './main'
 
-export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand('create-folder-from-template.create', target => {
-    main(target)
+export function activate(context: VSCode.ExtensionContext) {
+  let disposable = VSCode.commands.registerCommand('create-folder-from-template.create', target => {
+    Main(target)
   })
 
   context.subscriptions.push(disposable)
