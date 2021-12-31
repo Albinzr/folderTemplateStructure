@@ -1,13 +1,14 @@
-# create-folder-from-template
-
 从模板创建文件夹的工具。
 
-## 使用
+VSCode 扩展。安装地址：
+[https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template](https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template)。
+
+# 使用
 
 1. 在文件浏览器中点击右键，选“从模板创建文件夹”。
 2. 在命令面板选择一个预设的方法。
 
-## 配置
+# 配置
 
 在设置中可配置多个方案，示例：
 
@@ -22,7 +23,7 @@
         {
           "name": "index.vue",
           "type": "file",
-          "content": "<!--\n@name\n-->\n\n<template>\n\t<div class=\"\"></div>\n</template>\n\n<script src=\"./component.js\"></script>\n<style src=\"./style.scss\" lang=\"scss\" scoped></style>\n"
+          "content": "<!--\n\n-->\n\n<template>\n\t<div class=\"\"></div>\n</template>\n\n<script src=\"./component.js\"></script>\n<style src=\"./style.scss\" lang=\"scss\" scoped></style>\n"
         },
         {
           "name": "component.js",

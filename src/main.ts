@@ -1,14 +1,12 @@
 /**
- * @name index
+ *  index
  */
-
-/* private */
 
 import * as VSCode from 'vscode'
 import * as Path from 'path'
 
 /**
- * @name 类型
+ *  类型
  */
 enum Type {
   file = 'file',
@@ -16,7 +14,7 @@ enum Type {
 }
 
 /**
- * @name 模板
+ *  模板
  */
 interface Template {
   title: string // 显示名称
@@ -30,7 +28,7 @@ const FS = VSCode.workspace.fs
 const URI = VSCode.Uri
 
 /**
- * @name 创建
+ *  创建
  * @param template 模板
  * @param path 基础路径
  */
@@ -57,25 +55,22 @@ async function create(base: string, template: Template) {
     }
   }
 }
-
 /**
- * @name 字符串转Uint8Array
+ *  字符串转Uint8Array
  * @param raw 字符串
  * @return Uint8Array
  */
 function stringToUint8Array(raw: string) {
-  var arrry = []
+  var array = []
   for (var i = 0, j = raw.length; i < j; ++i) {
-    arrry.push(raw.charCodeAt(i))
+    array.push(raw.charCodeAt(i))
   }
 
-  return new Uint8Array(arrry)
+  return new Uint8Array(array)
 }
 
-/* public */
-
 /**
- * @name 主函数
+ *  主函数
  * @param target 目标
  */
 async function main(target: { fsPath: string }): Promise<void> {
@@ -88,7 +83,5 @@ async function main(target: { fsPath: string }): Promise<void> {
     await create(target.fsPath, template)
   }
 }
-
-/* construct */
 
 export default main

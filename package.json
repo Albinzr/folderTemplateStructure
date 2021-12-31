@@ -2,7 +2,7 @@
   "name": "create-folder-from-template",
   "author": "WingsJ",
   "publisher": "WingsJ",
-  "displayName": "Create Folder from Template",
+  "displayName": "从模板创建文件夹",
   "description": "从模板创建文件夹",
   "version": "0.0.2",
   "icon": "icon.png",
