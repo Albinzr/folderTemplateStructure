@@ -29,11 +29,12 @@ const URI = VSCode.Uri
 
 /**
  *  创建
+ * @param base 基础路径
  * @param template 模板
- * @param path 基础路径
+ * @param name 名称
  */
-async function create(base: string, template: Template) {
-  let path = Path.resolve(base, template.name)
+async function create(base: string, template: Template, name?: string) {
+  let path = Path.resolve(base, name ?? template.name)
   let uri = URI.file(path)
 
   try {
@@ -76,11 +77,16 @@ function stringToUint8Array(raw: string) {
 async function main(target: { fsPath: string }): Promise<void> {
   let templates = VSCode.workspace.getConfiguration('createFolderFromTemplate')?.templates || []
 
-  let titles = templates.map((a: Template) => a.title)
-  let select = await VSCode.window.showQuickPick(titles, { placeHolder: '选择模板' })
-  if (select) {
-    let template = templates.find((a: Template) => a.title === select)
-    await create(target.fsPath, template)
+  let templateName = await VSCode.window.showQuickPick(
+    templates.map((a: Template) => a.title),
+    { placeHolder: '选择模板' }
+  )
+  if (templateName) {
+    let template = templates.find((a: Template) => a.title === templateName)
+    let foldName = await VSCode.window.showInputBox({ placeHolder: '输入名称' })
+    if (foldName) {
+      await create(target.fsPath, template, foldName)
+    }
   }
 }
 

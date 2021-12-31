@@ -2,9 +2,9 @@
   "name": "create-folder-from-template",
   "author": "WingsJ",
   "publisher": "WingsJ",
-  "displayName": "从模板创建文件夹",
+  "displayName": "Create folder from template",
   "description": "从模板创建文件夹",
-  "version": "0.0.2",
+  "version": "1.0.2",
   "icon": "icon.png",
   "repository": "https://github.com/WingsJ0/create-folder-from-template.git",
   "engines": {
@@ -44,11 +44,9 @@
     }
   },
   "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "package": "vsce package"
+    "dev": "tsc -watch -p ./",
+    "build": "tsc -p ./",
+    "pack": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
