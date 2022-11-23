@@ -1,17 +1,19 @@
-从模板创建文件夹的工具。
+# create-folder-from-template
 
-VSCode 扩展。安装地址：
+A tool for creating folders and files from templates
+
+VSCode extension. Install:
 [https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template](https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template)。
 
-# 使用
+## Usage
 
-1. 在文件浏览器中点击右键，选“从模板创建文件夹”。
-2. 在命令面板选择一个预设的方案。
-3. 输入文件夹名称。
+1. Right click on file in file explorer, click 'Create folder from template'.
+2. Select a pre-defined template in command panel.
+3. Input the name of the folder and enter.
 
-# 配置
+## Configuration
 
-在设置中可配置多个方案，示例：
+Templates can be set in VSCode setting json, example：
 
 ```json
 {
@@ -41,16 +43,16 @@ VSCode 扩展。安装地址：
 }
 ```
 
-配置设置在`createFolderFromTemplate.templates`属性下，必须为一个数组。每一个元素是一个方法，其结构为：
+The setting object name is `createFolderFromTemplate.templates`. It must be an array, with the item as：
 
 ```ts
 {
-  title: string // 显示名称
-  name: string // 目录或文件名
-  type: Type // 类型。目录（"dir"）或文件（"file"）
-  content?: string // 内容。文件专属
-  children?: [] // 子目录或文件数组。目录专属
+  title: string // display name
+  name: string // name of the folder
+  type: Type // "dir" or "file"
+  content?: string // content, exclusive for file
+  children?: [] // children dir or file, exclusive for dir
 }
 ```
 
-其中 children 的元素结构与自身相同。
+The children items have the same structure.
