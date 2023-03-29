@@ -2,9 +2,9 @@
 
 A tool for creating folders and files from templates
 
-VSCode extension. Install:
+<!-- VSCode extension. Install:
 [https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template](https://marketplace.visualstudio.com/items?itemName=WingsJ.create-folder-from-template)。
-
+ -->
 ## Usage
 
 1. Right click on file in file explorer, click 'Create folder from template'.
