@@ -37,7 +37,40 @@
       "properties": {
         "createFolderFromTemplate.templates": {
           "type": "array",
-          "default": [],
+          "default": [  {
+      "title": "service",
+      "name": "service",
+      "type": "dir",
+      "children": [
+        {
+          "name": "controller",
+          "type": "dir",
+          "children": [
+            {
+              "name": "controller.go",
+              "type": "file",
+              "content": "package controller"
+            },
+          ]
+        },
+        {
+          "name": "query",
+          "type": "dir",
+          "children": [
+            {
+              "name": "query.go",
+              "type": "file",
+              "content": "package query"
+            },
+          ]
+        },
+        {
+          "name": "service.go",
+          "type": "file",
+          "content": "package service"
+        },
+      ]
+    }],
           "description": "Specifies templates with objects which include title, name, type (file or dir), content for file and children for dir (elements of same structure) properties."
         }
       }
