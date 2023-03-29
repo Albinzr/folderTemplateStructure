@@ -1,12 +1,12 @@
 {
-  "name": "create-folder-from-template",
+  "name": "new-folder-structure",
   "author": "WingsJ",
   "publisher": "WingsJ",
   "displayName": "Create folder from template",
-  "description": "从模板创建文件夹",
+  "description": "New Folder Structure",
   "version": "1.0.2",
   "icon": "icon.png",
-  "repository": "https://github.com/WingsJ0/create-folder-from-template.git",
+  "repository": "https://github.com/Albinzr/folderTemplateStructure.git",
   "engines": {
     "vscode": "^1.52.0"
   },
@@ -21,7 +21,7 @@
     "commands": [
       {
         "command": "create-folder-from-template.create",
-        "title": "从模板创建文件夹"
+        "title": "New Folder Structure"
       }
     ],
     "menus": {
