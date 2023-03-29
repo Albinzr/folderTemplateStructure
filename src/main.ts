@@ -6,7 +6,7 @@ import * as VSCode from 'vscode'
 import * as Path from 'path'
 
 /**
- *  类型
+ * 
  */
 enum Type {
   file = 'file',
@@ -14,13 +14,13 @@ enum Type {
 }
 
 /**
- *  模板
+ * 
  */
 interface Template {
-  title: string // 显示名称
-  name: string // 文件或目录名
-  type: Type // 类型。文件或目录
-  content?: string // 内容
+  title: string 
+  name: string 
+  type: Type 
+  content?: string 
   children?: Template[]
 }
 
@@ -28,10 +28,10 @@ const FS = VSCode.workspace.fs
 const URI = VSCode.Uri
 
 /**
- *  创建
- * @param base 基础路径
- * @param template 模板
- * @param name 名称
+ *  
+ * @param base 
+ * @param template
+ * @param name 
  */
 async function create(base: string, template: Template, name?: string) {
   let path = Path.resolve(base, name ?? template.name)
@@ -40,7 +40,7 @@ async function create(base: string, template: Template, name?: string) {
   try {
     await FS.stat(uri)
 
-    VSCode.window.showInformationMessage('文件夹或文件已存在')
+    VSCode.window.showInformationMessage('folder or file already exists')
   } catch {
     if (template.type === Type.dir) {
       await FS.createDirectory(uri)
@@ -57,8 +57,8 @@ async function create(base: string, template: Template, name?: string) {
   }
 }
 /**
- *  字符串转Uint8Array
- * @param raw 字符串
+ *  Uint8Array
+ * @param raw
  * @return Uint8Array
  */
 function stringToUint8Array(raw: string) {
@@ -71,19 +71,19 @@ function stringToUint8Array(raw: string) {
 }
 
 /**
- *  主函数
- * @param target 目标
+ *  
+ * @param target 
  */
 async function main(target: { fsPath: string }): Promise<void> {
   let templates = VSCode.workspace.getConfiguration('createFolderFromTemplate')?.templates || []
 
   let templateName = await VSCode.window.showQuickPick(
     templates.map((a: Template) => a.title),
-    { placeHolder: '选择模板' }
+    { placeHolder: 'select template' }
   )
   if (templateName) {
     let template = templates.find((a: Template) => a.title === templateName)
-    let foldName = await VSCode.window.showInputBox({ placeHolder: '输入名称' })
+    let foldName = await VSCode.window.showInputBox({ placeHolder: 'enter a name' })
     if (foldName) {
       await create(target.fsPath, template, foldName)
     }
